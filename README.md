@@ -88,6 +88,10 @@ macOS / Linux：
 PORT=3001 node server.js
 ```
 
+## Cloudflare 云端部署
+
+新增 Workers + SQLite Durable Objects 部署版本，前端使用 Static Assets，后端保留 SSE 和轮询，房间、积分及锚点收藏持久化。参见 [Cloudflare 部署说明](cloudflare/README.md)。本地启动方式保持不变，云端部署不需要主机电脑保持开机。免费额度有上限，云端 GM 需绑定浏览器身份。
+
 ## 平台接入
 
 接入其他桌游平台前，先阅读 [平台接入交接](先读我-平台接入.md) 和 [HTTP / SSE 接口](docs/platform/API.md)。包含反向代理示例及独立联调自检：运行 node integration/smoke.js。平台账号、统一积分、管理员认证与结算回调仍需按平台实际情况适配。

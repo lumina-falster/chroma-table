@@ -11,3 +11,6 @@ Thumbs.db
 server.config.json
 runtime/
 data/
+.cloudflare/
+.wrangler/
+.dev.vars

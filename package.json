@@ -1,13 +1,13 @@
 {
   "name": "chroma-table",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "private": true,
-  "description": "染域 CHROMA：2–8 人局域网染色策略桌游，支持观战、海克斯强化与单人教学",
+  "description": "染域 CHROMA：2–8 人染色策略桌游，支持局域网与 Cloudflare 云端部署",
   "license": "MIT",
   "keywords": [
     "board-game",
     "multiplayer",
-    "lan",
+    "cloudflare",
     "nodejs",
     "chinese"
   ],
