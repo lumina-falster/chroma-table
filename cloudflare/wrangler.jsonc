@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "chroma-table",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-10-19",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "assets": {
+    "directory": "../.cloudflare/assets",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "durable_objects": {"bindings": [{"name": "GAME_HUB", "class_name": "GameHub"}]},
+  "migrations": [{"tag": "v1", "new_sqlite_classes": ["GameHub"]}],
+  "observability": {"enabled": false}
+}

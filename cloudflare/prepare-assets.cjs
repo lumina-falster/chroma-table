@@ -1,0 +1,11 @@
+const fs=require('node:fs'),path=require('node:path');
+const root=path.join(__dirname,'..'),target=path.join(root,'.cloudflare','assets');
+fs.mkdirSync(target,{recursive:true});
+for(const name of ['index.html','style.css'])fs.copyFileSync(path.join(root,'public',name),path.join(target,name));
+let app=fs.readFileSync(path.join(root,'public/app.js'),'utf8');
+if(app.includes('// BEGIN EMBEDDED AUGMENT ICONS'))app=app.replace(/\/\/ BEGIN EMBEDDED AUGMENT ICONS[\s\S]*?\/\/ END EMBEDDED AUGMENT ICONS\r?\n/,'const AUGMENT_ICONS={};\n');
+else if(!app.includes('const AUGMENT_ICONS={};'))throw Error('Missing icon boundary');
+if(app.includes('data:image/png;base64,')||app.includes('game.gtimg.cn'))throw Error('Third-party image remains');
+fs.writeFileSync(path.join(target,'app.js'),app);
+fs.writeFileSync(path.join(target,'_headers'),'/*\n  X-Content-Type-Options: nosniff\n/app.js\n  Cache-Control: no-cache\n/style.css\n  Cache-Control: no-cache\n');
+console.log('Cloudflare assets ready');

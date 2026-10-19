@@ -1,0 +1,12 @@
+{
+  "name": "chroma-cloudflare",
+  "version": "0.6.0",
+  "private": true,
+  "scripts": {
+    "prepare:assets": "node prepare-assets.cjs",
+    "dev": "node prepare-assets.cjs && wrangler dev",
+    "deploy": "node prepare-assets.cjs && wrangler deploy",
+    "check": "node prepare-assets.cjs && wrangler deploy --dry-run"
+  },
+  "devDependencies": {"wrangler": "4.151.2"}
+}
